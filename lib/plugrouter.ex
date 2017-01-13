@@ -1,4 +1,4 @@
-defmodule PlugRouter do
+defmodule Plugrouter do
   use Application
 
   def start(_type, _args) do
@@ -10,7 +10,7 @@ defmodule PlugRouter do
       Plug.Adapters.Cowboy.child_spec(:http, HTTPRouter, [], [port: port, timeout: 30000]),
     ]
 
-    opts = [strategy: :one_for_one, name: PlugRouter.Supervisor]
+    opts = [strategy: :one_for_one, name: Plugrouter.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end
